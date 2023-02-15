@@ -21,13 +21,13 @@ public class CarController {
         return carRepository.saveAndFlush(car);
     }
 
-    // Read one
+    // Read all
     @GetMapping("")
     public List<Car> getAllCars(){
         return carRepository.findAll();
     }
 
-    // Read all
+    // Read one
     @GetMapping("/{id}")
     public Car getACar(@PathVariable long id){
         return carRepository.existsById(id)
@@ -49,7 +49,7 @@ public class CarController {
         return car;
     }
 
-    // delete a specific car
+    // delete a one car
     @DeleteMapping("/{id}")
     public void deleteSingle(@PathVariable long id, HttpServletResponse response){
         if (carRepository.existsById(id))
